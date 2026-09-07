@@ -33,7 +33,7 @@
       <?php } ?>
       <!-- Dinas Kependudukan dan Pencatatan Sipil Provinsi Sumatera Barat & Kota Kabupaten -->
       <?php if (permissible('sipil', 'readable')) { ?>
-        <li class="nav-item" style="display:none">
+        <li class="nav-item">
           <a href="<?= base_url('sipil') ?>" class="nav-link <?= ($segment == 'sipil') ? 'active' : '' ?>">
             <i class="bi bi-person-vcard-fill nav-icon"></i>
             <span class="nav-label">Dinas Kependudukan dan Pencatatan Sipil</span>
@@ -42,7 +42,7 @@
       <?php } ?>
       <!-- Dinas Sosial Provinsi Sumatera Barat & Kota Kabupaten -->
       <?php if (permissible('sosial', 'readable')) { ?>
-        <li class="nav-item" style="display:none">
+        <li class="nav-item">
           <a href="<?= base_url('sosial') ?>" class="nav-link <?= ($segment == 'sosial') ? 'active' : '' ?>">
             <i class="bi bi-people-fill nav-icon"></i>
             <span class="nav-label">Dinas Sosial</span>

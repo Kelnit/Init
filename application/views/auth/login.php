@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="<?= base_url('assets/css/auth.css'); ?>">
 
 <!-- Tombol Petunjuk Teknis — Icon Only, Fixed Pojok Kanan Bawah -->
-<a href="<?= base_url('assets/docs/juknis.pdf') ?>" target="_blank" class="auth-help-btn">
+<a href="<?= base_url('assets/juknis.pdf') ?>" target="_blank" class="auth-help-btn">
   <i class="bi bi-question-circle-fill"></i>
 </a>
 

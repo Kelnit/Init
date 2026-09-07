@@ -53,7 +53,13 @@ class Inti_model extends CI_Model {
 
   public function getPasienSosial() {
     // Tampilkan Data Seluruh Pasien Sosial
-    return $this->seluruhTabular(array());
+    $cols = "p.kode, p.fullname, p.kondisi, p.kota, s.identity, s.keluarga, s.selesai, s.tglselesai";
+    $this->db->select($cols);
+    $this->db->from('patient p');
+    $this->db->join('sosial s', 's.patientKey = p.kode');
+    $this->db->where('p.isactive', 1);
+    $this->db->where('p.deleted', null);
+    return $this->db->get()->result_array();
   }
 
   public function getPasienBaznas() {

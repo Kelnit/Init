@@ -1,17 +1,17 @@
-<!-- Custom Styling Tabel -->
+<!-- Custom Styling -->
 <link rel="stylesheet" href="<?= base_url('assets/css/tabel.css'); ?>">
-<!-- Custom Styling Modal -->
 <link rel="stylesheet" href="<?= base_url('assets/css/modal.css'); ?>">
 
 <!-- Title Panel -->
 <div class="page-header">
-  <p class="lead" style="font-weight:300; font-size:30px; color:black">Rumah Sakit Umum Pusat Dr. M. Djamil Padang</p>
+  <p class="lead" style="font-weight:300; font-size:30px; color:black">Dinas Kependudukan dan Pencatatan Sipil</p>
   <p style="margin-top:10px; font-size:18px">Tabel Data Pasien Terlantar</p>
 </div>
 
 <!-- Panel Tabel -->
 <div class="content">
-  <!-- Specialized Filter Section -->
+
+  <!-- Filter Pencarian -->
   <div class="filter-panel">
     <div class="filter-panel-head">
       <div class="filter-panel-title"><i class="bi bi-funnel"></i> Filter Pencarian</div>
@@ -19,9 +19,8 @@
         <i class="bi bi-arrow-counterclockwise"></i> Reset Filter
       </button>
     </div>
-    <!-- Filter Panel -->
     <div class="filter-panel-body">
-      <!-- Cari Pasien Melalui Nama -->
+      <!-- Cari Nama Pasien -->
       <div class="filter-group filter-group-search">
         <label class="filter-group-label">Cari Nama Pasien</label>
         <div class="filter-search-wrap">
@@ -43,7 +42,7 @@
           </div>
         </div>
       </div>
-      <!-- Identitas Filter -->
+      <!-- Status Identitas -->
       <div class="filter-group filter-group-select">
         <label class="filter-group-label">Status Identitas</label>
         <select class="filter-select" id="filterIdentity">
@@ -52,7 +51,7 @@
           <option value="0">Tanpa Identitas</option>
         </select>
       </div>
-      <!-- Keluarga Filter -->
+      <!-- Status Keluarga -->
       <div class="filter-group filter-group-select">
         <label class="filter-group-label">Status Keluarga</label>
         <select class="filter-select" id="filterKeluarga">
@@ -64,8 +63,9 @@
     </div>
   </div>
 
-  <!-- Table Panel -->
+  <!-- Panel Tabel Data -->
   <div class="panel">
+
     <!-- Panel Toolbar -->
     <div class="panel-toolbar">
       <div class="rows-picker">
@@ -82,12 +82,9 @@
             <option value="100">100</option>
           </select>
         </div>
-        <!-- Input Pasien Baru -->
-        <a href="<?= base_url('inti/insert') ?>" type="button" class="add-btn" title="Tambah data">
-          <i class="bi bi-plus-lg"></i>
-        </a>
       </div>
     </div>
+
     <!-- Tabel -->
     <table class="data-table">
       <thead>
@@ -120,6 +117,7 @@
         </tr>
       </tbody>
     </table>
+
     <!-- Halaman -->
     <div class="panel-foot">
       <div class="pager" id="pagerContainer"></div>
@@ -127,18 +125,13 @@
   </div>
 </div>
 
-<!-- Modal Notif Total Pasien -->
-<?php $this->load->view('modal/ranap'); ?>
-
 <!-- Data Controller on Historia -->
 <script>
   // Variable Data
-  window.PASIEN_DATA_URL = '<?= base_url('inti/historia') ?>';
+  window.PASIEN_DATA_URL = '<?= base_url('sipil/historia') ?>';
   // Variable Detail
-  window.PASIEN_DETAIL_URL = '<?= base_url('inti/detail/') ?>';
-  // Variable Delete
-  window.PASIEN_DELETE_URL = '<?= base_url('inti/disable/') ?>';
+  window.PASIEN_DETAIL_URL = '<?= base_url('sipil/detail/') ?>';
 </script>
 
 <!-- Helper Mainly Script ! -->
-<script src="<?= base_url('assets/js/tabel.js'); ?>"></script>
+<script src="<?= base_url('assets/js/notabel.js'); ?>"></script>
