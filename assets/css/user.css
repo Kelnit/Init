@@ -170,3 +170,67 @@
   color: #c0392b;
   min-height: 16px;
 }
+
+/* ================= Panel Header dengan Aksi (Pensil/Batal/Kirim) ================= */
+
+.page-header-with-badge {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.panel-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-panel-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  border: 1px solid rgba(23, 26, 31, 0.10);
+  background: #ffffff;
+  color: #5c6470;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 150ms ease;
+}
+
+.btn-panel-icon:hover { background: #F2F9F7; border-color: #DCEAE6; color: #4CA694; }
+
+.btn-panel-icon:active { transform: scale(0.94); }
+
+.btn-panel-edit { color: #2f6690; }
+
+.btn-panel-edit:hover { background: #eaf1f7; border-color: #c6d6e7; color: #285a7e; }
+
+.btn-panel-cancel { color: #c0392b; }
+
+.btn-panel-cancel:hover { background: #fbeae8; border-color: #f3c9c5; color: #c0392b; }
+
+.btn-panel-save { background: #2f6690; border-color: #2f6690; color: #ffffff; }
+
+.btn-panel-save:hover { background: #285a7e; box-shadow: 0 6px 16px -6px rgba(47, 102, 144, 0.5); }
+
+/* ================= Status Panel Sedang Diedit ================= */
+
+.panel--editing { border-color: #6FBFAE; box-shadow: 0 0 0 3px rgba(76, 166, 148, 0.12); }
+
+.panel--editing .panel-head { border-bottom-color: rgba(76, 166, 148, 0.25); }
+
+/* ================= Field Terkunci (readonly / select dikunci lewat JS) ================= */
+
+.input-locked { background: #f4f5f7 !important; color: #6b7280 !important; cursor: default !important; }
+
+.auth-input-wrap:has(.input-locked) {
+  background: #f4f5f7;
+  border-color: rgba(23, 26, 31, 0.10);
+}
+
+.auth-input-wrap:has(.input-locked) .auth-icon-lead { color: #9aa4af; }

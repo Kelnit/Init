@@ -49,10 +49,10 @@ class User extends MainController {
     // Hasil Insert User
     if ($result) {
       // Alert
-      alerta('success', "Data User Berhasil Ditambahkan !");
+      alerta('success', "Input Data User Berhasil !");
     } else {
       // Kalau Fail | Alert
-      alerta('error', "Data User Tidak Berhasil Ditambahkan !");
+      alerta('error', "Input Data User Tidak Berhasil !");
     }
     // Kembali Ke Tampilan User
     return redirect(base_url('user'));

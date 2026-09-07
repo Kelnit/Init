@@ -25,7 +25,7 @@
           </div>
         </div>
 
-        <!-- NIK -->
+        <!-- Nomor Induk Kependudukan -->
         <div class="auth-field field-required">
           <label class="auth-label">Nomor Induk Kependudukan</label>
           <div class="auth-input-wrap">
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <!-- NIP -->
+        <!-- Nomor Induk Pegawai -->
         <div class="auth-field field-required">
           <label class="auth-label">Nomor Induk Pegawai</label>
           <div class="auth-input-wrap">
@@ -43,7 +43,7 @@
           </div>
         </div>
 
-        <!-- Email -->
+        <!-- Electronic Mail -->
         <div class="auth-field field-required">
           <label class="auth-label">Electronic Mail</label>
           <div class="auth-input-wrap">

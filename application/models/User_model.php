@@ -1,37 +1,69 @@
 <?php
-// Profile Model to Profile Controller
+// User Model - User Controller
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Profile_model extends CI_Model {
-  // Profile Model Melakukan Handling Data In & Data Out Profile User
+class User_model extends CI_Model {
+  // Model Build
   public function __construct(){
-    // Construct Parent
+    // Model Builder
     parent::__construct();
   }
 
-  public function getProfileByID($key) {
-    // Model u Melakukan Pengambilan Data Profile User
-    $table = 'staff';
-    $filter = array('kode' => $key);
-    $this->db->where($filter);
-    return $this->db->get($table)->row_array();
+  public function getAllUser(){
+    // Get All User
+    $this->db->select('s.kode, s.nik, s.fullname, s.email, s.phone, r.nama, s.unit');
+    $this->db->from('staff s');
+    $this->db->join('roles r', 's.roleKey = r.id', 'left');
+    $this->db->where('s.isactive', 1);
+    $this->db->order_by('s.id', 'ASC');
+    return $this->db->get()->result_array();
   }
 
-  public function publishProfile($data) {
-    // Model u Melakukan Update Data Profile
-    $table = 'staff';
-    $filter = array('kode' => $data['kode']);
+  public function updateDataUser($data) {
+    $userKey = $data['kode'];
+    $this->db->where('kode', $userKey);
     unset($data['kode']);
-    $this->db->where($filter);
-    return $this->db->update($table, $data);
+    return $this->db->update('staff', $data);
   }
 
-  public function publishKataSandi($data) {
-    // Model u Melakukan Update Kata Sandi
-    $filter = array('nik' => $data['nik']);
-    $this->db->where($filter);
-    $pass = kataSandi('hash', $data['password']);
-    $update = array('password' => $pass);
-    return $this->db->update('login_credential', $update);
+  public function publishDataUser($data) {
+    // ?
+    $isUpdate = !empty($data['kode']);
+    // ?
+    return $isUpdate ? $this->updateDataUser($data) : $this->insertDataUser($data);
   }
+
+  public function getUserByID($key){
+    // Get User By ID
+    $this->db->select('*');
+    $this->db->from('staff');
+    $this->db->where('kode', $key);
+    return $this->db->get()->row_array();
+  }
+
+  public function disableUser($key){
+    // Disable User
+    $this->db->trans_start();
+    // Disable Staff
+    $this->db->where('kode', $key);
+    $this->db->update('staff', array('isactive' => false));
+    // Disable Login Credential
+    $this->db->where('userKey', $key);
+    $this->db->update('login_credential', array('isactive' => false));
+    $this->db->trans_complete();
+    return $this->db->trans_status();
+  }
+
+  public function reKataSandiUser($userKey){
+    // Melakukan Reset Kata Sandi User
+    $this->db->trans_start();
+    $this->db->where('userKey', $userKey);
+    $password = array('password' => kataSandi('hash', 'password'));
+    $this->db->update('login_credential', $password);
+    $this->db->trans_complete();
+    return $this->db->trans_status();
+  }
+
 }
+
+?>
