@@ -1,0 +1,172 @@
+/* Final */
+
+.form-wrap { max-width: 100%; margin: 0; padding: 0px 0px 56px; }
+
+.panel {
+  background: #ffffff;
+  border: 1px solid rgba(23, 26, 31, 0.10);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.panel + .panel { margin-top: 28px; }
+
+.panel-head { padding: 24px 28px; border-bottom: 1px solid rgba(23, 26, 31, 0.08); }
+
+.panel-head h2 { margin: 0; font-size: 17px; font-weight: 700; color: #22262f; }
+
+.panel-head p { margin: 6px 0 0; font-size: 13px; color: #5c6470; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px 32px;
+  margin-bottom: 0;
+  padding: 28px 28px 32px;
+}
+
+.form-grid-last { padding-bottom: 32px; }
+
+.field-full { grid-column: 1 / -1; }
+
+.field-required label::after { content: " *"; color: #c0392b; }
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 26px 28px;
+  border-top: 1px solid rgba(23, 26, 31, 0.10);
+}
+
+/* ================= Tombol Kembali ================= */
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(23, 26, 31, 0.10);
+  background: #c6d6e7;
+  color: #000000;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 150ms ease;
+}
+
+.btn-back:hover { background: #f1f3f5; border-color: rgba(23, 26, 31, 0.2); }
+
+.btn-back:active { transform: scale(0.97); }
+
+/* ================= Tombol Reset & Submit ================= */
+
+.btn-reset,
+.btn-submit {
+  height: 44px;
+  padding: 0 26px;
+  border-radius: 10px;
+  border: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  transition: background 160ms ease, box-shadow 160ms ease, transform 150ms ease;
+}
+
+.btn-reset { background: #fbeae8; color: #c0392b; border: 1px solid #f3c9c5; }
+
+.btn-reset:hover { background: #f6dcd9; }
+
+.btn-submit { background: #2f6690; color: #ffffff; }
+
+.btn-submit:hover { background: #285a7e; box-shadow: 0 6px 16px -6px rgba(47, 102, 144, 0.5); }
+
+.btn-reset:active, .btn-submit:active { transform: scale(0.97); }
+
+/* ================= Field Visual (dari auth.css) ================= */
+
+.auth-label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #22262f;
+  margin-bottom: 6px;
+}
+
+.auth-field { margin-bottom: 0; display: flex; flex-direction: column; }
+
+.auth-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #DCEAE6;
+  border-radius: 12px;
+  padding: 0 14px;
+  background: #F2F9F7;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-input-wrap:focus-within { border-color: #6FBFAE; background: #fff; box-shadow: 0 0 0 4px rgba(76, 166, 148, 0.14); }
+
+.auth-input-wrap input,
+.auth-input-wrap select {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 12px 10px;
+  font-size: 14px;
+  color: #24332F;
+  font-family: inherit;
+}
+
+.auth-input-wrap input:-webkit-autofill,
+.auth-input-wrap input:-webkit-autofill:hover,
+.auth-input-wrap input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #24332F;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.auth-icon-lead {
+  flex-shrink: 0;
+  color: #4CA694;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.auth-input-wrap:focus-within .auth-icon-lead { color: #E2924F; }
+
+.auth-input-wrap select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+
+.auth-input-wrap select:invalid, .auth-input-wrap input::placeholder { color: #a8b6c8; }
+
+/* ================= Toggle Lihat Password ================= */
+
+.auth-eye-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #7E938E;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.auth-eye-btn:hover { color: #E2924F; }
+
+.auth-error-text {
+  font-size: 12.5px;
+  color: #c0392b;
+  min-height: 16px;
+}
