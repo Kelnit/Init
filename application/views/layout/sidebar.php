@@ -24,7 +24,7 @@
       <?php } ?>
       <!-- Inti : RSUP Dr. M. Djamil Padang -->
       <?php if (permissible('rsup', 'readable')) { ?>
-        <li class="nav-item" style="display:none">
+        <li class="nav-item">
           <a href="<?= base_url('inti') ?>" class="nav-link <?= ($segment == 'inti') ? 'active' : '' ?>">
             <i class="bi bi-hospital-fill nav-icon"></i>
             <span class="nav-label">RSUP Dr. M. Djamil Padang</span>

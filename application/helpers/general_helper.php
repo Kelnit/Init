@@ -169,4 +169,46 @@ function roletounit($number) {
 
 function esc($v) { return htmlspecialchars((string) $v, ENT_QUOTES, 'UTF-8'); }
 
+function render_options_kv(array $options, $selected = null) {
+  $html = '';
+  foreach ($options as $value => $label) {
+    $isSelected = ((string) $selected === (string) $value) ? ' selected' : '';
+    $html .= '<option value="' . htmlspecialchars((string) $value) . '"' . $isSelected . '>' . htmlspecialchars($label) . '</option>';
+  }
+  return $html;
+}
+
+function rolerReligion(?string $selected = null) {
+  $options = ['Islam', 'Kristen', 'Protestan', 'Katolik', 'Hindu', 'Buddha', 'Konghucu', 'Belum Diketahui'];
+  return render_options($options, $selected, 'Pilih Agama');
+}
+
+function rolerFamily(?string $selected = null) {
+  $options = ['Ayah', 'Ibu', 'Saudara Kandung', 'Kakek', 'Nenek', 'Lain'];
+  return render_options($options, $selected, 'Pilih Hubungan Keluarga');
+}
+
+function render_options(array $options, ?string $selected = null, ?string $placeholder = null) {
+  $html = '';
+  if ($placeholder !== null) {
+    $isEmpty = empty($selected);
+    $html .= '<option value="" disabled' . ($isEmpty ? ' selected' : '') . '>' . htmlspecialchars($placeholder) . '</option>';
+  }
+  foreach ($options as $value) {
+    $isSelected = ((string) $selected === (string) $value) ? ' selected' : '';
+    $html .= '<option value="' . htmlspecialchars($value) . '"' . $isSelected . '>' . htmlspecialchars($value) . '</option>';
+  }
+  return $html;
+}
+
+function safe_date(?string $value) {
+  if (empty($value)) {
+      return '';
+  }
+  if (strpos($value, '0000-00-00') === 0) {
+      return '';
+  }
+  return $value;
+}
+
 ?>

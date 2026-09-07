@@ -117,10 +117,10 @@ class Inti extends MainController {
     // Hasil
     if ($result === false) {
       // Fail !
-      alerta('error', 'Perubahan Data Pasien Terlantar Tidak Berhasil Disimpan !');
+      alerta('error', 'Perubahan Data Pasien Tidak Berhasil Disimpan !');
     } else {
       // Berhasil !
-      alerta('success', 'Perubahan Data Pasien Terlantar Berhasil Disimpan !');
+      alerta('success', 'Perubahan Data Pasien Berhasil Disimpan !');
     }
     // Kembali
     return redirect(base_url('inti/detail/' . $inputs['patient']['kode']));
@@ -138,10 +138,10 @@ class Inti extends MainController {
     // Hasil
     if ($result === false) {
       // Fail
-      alerta('error', 'Perubahan Data Sosial Terlantar Tidak Berhasil Disimpan !');
+      alerta('error', 'Perubahan Data Sosial Tidak Berhasil Disimpan !');
     } else {
       // Berhasil !
-      alerta('success', 'Perubahan Data Sosial Terlantar Berhasil Disimpan !');
+      alerta('success', 'Perubahan Data Sosial Berhasil Disimpan !');
     }
     // Kembali
     return redirect(base_url('inti/detail/' . $inputs['sosial']['patientKey']));
@@ -175,6 +175,8 @@ class Inti extends MainController {
     }
     // Variable Input
     $inputs = $this->input->post();
+    // Trial
+    trialTest(["Del", $inputs]);
     // Model
     $result = $this->intidel->publishDataPengantar($inputs['pengantar']);
     // Hasil

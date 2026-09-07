@@ -311,3 +311,18 @@
 .btn-back:hover { background: #f1f3f5; border-color: rgba(23, 26, 31, 0.2); }
 
 .btn-back:active { transform: scale(0.97); }
+
+.page-status-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.page-status-banner-selesai { background: #e6f4ea; color: #1e7e34; border: 1px solid #b7dfc2; }
+
+.page-status-banner-selesai i { font-size: 18px; }
