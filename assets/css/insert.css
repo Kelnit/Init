@@ -326,3 +326,105 @@
 .page-status-banner-selesai { background: #e6f4ea; color: #1e7e34; border: 1px solid #b7dfc2; }
 
 .page-status-banner-selesai i { font-size: 18px; }
+
+/* =========================================================
+   Panel Dokumen — File Pendukung
+   Prefix class: dokumen-*
+   ========================================================= */
+
+/* Grid pembungkus 2 kolom (kode pasien full width, 4 file 2x2) */
+.dokumen-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.dokumen-field-code {
+  grid-column: 1 / -1;
+}
+
+.dokumen-field-file {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Input kode pasien (readonly) */
+.dokumen-input-code {
+  background: #f4f5f7;
+  color: #555;
+  cursor: not-allowed;
+}
+
+/* Wrapper file input, dibikin mirip "dropzone" ringan */
+.dokumen-file-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px dashed #c9ccd3;
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: #fafbfc;
+  transition: border-color .15s ease, background .15s ease;
+}
+
+.dokumen-file-wrap:hover {
+  border-color: #9aa0ab;
+}
+
+.dokumen-file-icon {
+  font-size: 20px;
+  color: #8a90a0;
+  flex-shrink: 0;
+}
+
+/* Input file asli */
+.dokumen-input-file {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  padding: 0;
+}
+
+.dokumen-input-file::file-selector-button {
+  border: none;
+  background: #eef0f4;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background .15s ease;
+}
+
+.dokumen-input-file::file-selector-button:hover {
+  background: #e0e3e9;
+}
+
+/* State locked / disabled */
+.dokumen-input-file.input-locked,
+.dokumen-input-file:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.dokumen-input-file:disabled::file-selector-button {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.dokumen-file-wrap:has(.dokumen-input-file:disabled) {
+  background: #f4f5f7;
+  border-style: solid;
+  border-color: #e2e4e8;
+}
+
+/* Responsive: 1 kolom di layar kecil */
+@media (max-width: 640px) {
+  .dokumen-grid {
+    grid-template-columns: 1fr;
+  }
+}

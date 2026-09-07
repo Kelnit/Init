@@ -338,6 +338,74 @@
       </div>
     </div>
   </form>
+
+  <!-- V - Panel File -->
+  <form action="<?php echo base_url('inti/publifile'); ?>" method="POST" class="panel-form dokumen-form" id="formDokumen" data-panel-form="dokumen" enctype="multipart/form-data">
+    <div class="panel dokumen-panel" id="dokumenPanel">
+      <div class="panel-head page-header-with-badge">
+        <div>
+          <h2>File Pendukung</h2>
+          <p class="lead" style="margin-top:10px">Input File Terkait Pengurusan Pasien Terlantar</p>
+        </div>
+        <div class="panel-head-actions" data-panel-actions="dokumen">
+          <button type="button" class="btn-panel-icon btn-panel-edit" data-edit-panel="dokumen">
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button type="button" class="btn-panel-icon btn-panel-cancel" data-cancel-panel="dokumen" style="display:none">
+            <i class="bi bi-x-lg"></i>
+          </button>
+          <button type="submit" class="btn-panel-icon btn-panel-save" data-submit-panel="dokumen" style="display:none">
+            <i class="bi bi-check-lg"></i>
+          </button>
+        </div>
+        <!-- Panel Keluarga Panel Sosial -->
+      </div>
+      <div class="form-grid dokumen-grid">
+        <!-- Kode Pasien (Full Width) -->
+        <div class="field field-full field-code dokumen-field-code">
+          <label for="kodeDokumenInput">Kode Pasien</label>
+          <input type="text" name="dokumen[patientKey]" id="kodeDokumenInput" class="dokumen-input-code" value="<?= $dokumen['patientKey'] ?? '' ?>" readonly>
+        </div>
+
+        <!-- Dummy File 1 -->
+        <div class="field dokumen-field-file">
+          <label for="dokumenFile1Input">Dokumen 1 <span class="label-optional">(Contoh: KTP)</span></label>
+          <div class="dokumen-file-wrap">
+            <i class="bi bi-file-earmark-arrow-up dokumen-file-icon"></i>
+            <input type="file" name="dokumen[file1]" id="dokumenFile1Input" class="dokumen-input-file field-editable" disabled>
+          </div>
+        </div>
+
+        <!-- Dummy File 2 -->
+        <div class="field dokumen-field-file">
+          <label for="dokumenFile2Input">Dokumen 2 <span class="label-optional">(Contoh: Kartu Keluarga)</span></label>
+          <div class="dokumen-file-wrap">
+            <i class="bi bi-file-earmark-arrow-up dokumen-file-icon"></i>
+            <input type="file" name="dokumen[file2]" id="dokumenFile2Input" class="dokumen-input-file field-editable" disabled>
+          </div>
+        </div>
+
+        <!-- Dummy File 3 -->
+        <div class="field dokumen-field-file">
+          <label for="dokumenFile3Input">Dokumen 3 <span class="label-optional">(Contoh: Surat Keterangan)</span></label>
+          <div class="dokumen-file-wrap">
+            <i class="bi bi-file-earmark-arrow-up dokumen-file-icon"></i>
+            <input type="file" name="dokumen[file3]" id="dokumenFile3Input" class="dokumen-input-file field-editable" disabled>
+          </div>
+        </div>
+
+        <!-- Dummy File 4 -->
+        <div class="field dokumen-field-file">
+          <label for="dokumenFile4Input">Dokumen 4 <span class="label-optional">(Contoh: Lainnya)</span></label>
+          <div class="dokumen-file-wrap">
+            <i class="bi bi-file-earmark-arrow-up dokumen-file-icon"></i>
+            <input type="file" name="dokumen[file4]" id="dokumenFile4Input" class="dokumen-input-file field-editable" disabled>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
 </div>
 
 <!-- Custom Script -->

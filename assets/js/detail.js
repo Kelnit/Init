@@ -339,11 +339,51 @@
 
   if (statusKeluargaInput) statusKeluargaInput.addEventListener('change', applyKeluargaEditability);
 
-  // Section 9 : Kondisi Awal
+  // Section 9 : Panel Data Dokumen
+  var dokumenFileInputs = fieldsIn('dokumenPanel', '.dokumen-input-file');
+
+  var dokumenAll = fieldsIn('dokumenPanel', 'input, select');
+
+  bindPanel('dokumen', dokumenAll, {
+    onOpen: function () { unlockAll(dokumenFileInputs); },
+    onClose: function () { lockAll(dokumenFileInputs); }
+  });
+
+  function setFileLocked(el, locked) {
+    if (!el) return;
+    el.disabled = locked;
+    el.classList.toggle('input-locked', locked);
+  }
+
+  function lockAllFiles(list) { list.forEach(function (el) { setFileLocked(el, true); }); }
+
+  function unlockAllFiles(list) { list.forEach(function (el) { setFileLocked(el, false); }); }
+
+  // Override lock/unlock for file inputs (readonly tidak berlaku untuk type=file)
+  lockAll = (function (original) {
+    return function (list) {
+      var files = list.filter(function (el) { return el && el.type === 'file'; });
+      var rest = list.filter(function (el) { return !el || el.type !== 'file'; });
+      lockAllFiles(files);
+      original(rest);
+    };
+  })(lockAll);
+
+  unlockAll = (function (original) {
+    return function (list) {
+      var files = list.filter(function (el) { return el && el.type === 'file'; });
+      var rest = list.filter(function (el) { return !el || el.type !== 'file'; });
+      unlockAllFiles(files);
+      original(rest);
+    };
+  })(unlockAll);
+
+  // Section 10 : Kondisi Awal
   lockAll(pasienEditable);
   lockAll(sosialDirect);
   lockAll(penjemputanDetail);
   lockAll(keluargaEditable);
+  lockAll(dokumenFileInputs);
   applyDijemputAccess();
   applyKeluargaEditability();
 })();
